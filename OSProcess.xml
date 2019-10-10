@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type='text/xsl' href='interface.xsl'?>
-<interface uri="https://limaono.github.io/OSProcess.xml" xmlns="http://zero-install.sourceforge.net/2004/injector/interface">
+<interface xmlns="http://zero-install.sourceforge.net/2004/injector/interface">
   <name>OSProcess</name>
   <summary>OSProcess for Cuis Smalltalk.</summary>
 
@@ -13,10 +13,19 @@
   <feed-for interface="https://limaono.github.io/OSProcess.xml"/>
 
   <group license="OSI Approved :: MIT/X">
+      <command name="run">
+      <runner interface="https://limaono.github.io/0cuis.xml">
+        <arg>OSProcess.image</arg>
+        <arg>-rOSProcess</arg>
+      </runner>
+    </command>
+
      <requires interface="https://limaono.github.io/CuisSource.xml">
-    	<environment insert="." mode="append" name="CUISPATH"/>
+    	<environment insert='.' mode='replace' name='CUISPATH'/>
     </requires>
 
-    <implementation id="." released="2019-10-09" version="4.6.14"/>
+    <implementation id="." released="2019-10-09" version="4.6.14">
+    	<environment insert='.' mode='append' name='CUISPACKAGESPATH'/>
+    </implementation>
   </group>
 </interface>
