@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<interface xmlns="http://zero-install.sourceforge.net/2004/injector/interface">
+   <name>OSProcess</name>
+  <summary>OSProcess for Cuis Smalltalk.</summary>
+
+  <description>
+  OSProcess provides access to operating system functions, including pipes, child process creation, and control of the Squeak VM process.
+  </description>
+
+  <homepage>https://github.com/LimaOno/OSProcess</homepage>
+
+  <feed-for interface="https://limaono.github.io/OSProcess.xml"/>
+
+  <group license="OSI Approved :: MIT/X">
+    <command name="run">
+      <runner interface="https://limaono.github.io/0cuis.xml">
+        <arg>OSProcess.image</arg>
+        <arg>-rOSProcess</arg>
+      </runner>
+    </command>
+
+     <requires interface="https://limaono.github.io/CuisSource.xml">
+    	<environment value='.' mode='replace' name='CUISPATH'/>
+    </requires>
+  
+    <implementation arch="*-*" version="{version}">
+      <manifest-digest/>
+      <archive href="https://github.com/LimaOno/OSProcess/archive/v{version}.zip"/>
+      <environment insert='.' mode='append' name='CUISPACKAGESPATH'/>
+   </implementation>
+  </group>
+</interface>
